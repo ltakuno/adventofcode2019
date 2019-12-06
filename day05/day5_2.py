@@ -29,7 +29,7 @@ if __name__ == "__main__":
                 val2 = op2
 
             code[op3] = val1 + val2
-            print('add %d, %d, %d'%(val1, val2, op3))
+            print('add %d, %d, %d'%(op1, op2, op3))
             i += 4
         elif (opcode == 2):
             mode1 = (code[i] // 100) % 10
@@ -49,7 +49,7 @@ if __name__ == "__main__":
                 val2 = op2
 
             code[op3] = val1 * val2
-            print('mul %d, %d, %d'%(val1, val2, op3))
+            print('mul %d, %d, %d'%(op1, op2, op3))
             i += 4
         elif (opcode == 3):
             op1 = code[i+1] 
@@ -88,7 +88,7 @@ if __name__ == "__main__":
                 i = op2
             else:
                 i += 3
-            print('jmp %d, %d' % (val1, val2))
+            print('jmp %d, %d' % (op1, op2))
         elif (opcode == 6):
             op1 = code[i+1]
             op2 = code[i+2]
@@ -110,7 +110,7 @@ if __name__ == "__main__":
                 i = op2
             else:
                 i += 3
-            print('jnz %d, %d' % (val1, val2))
+            print('jnz %d, %d' % (op1, op2))
         elif (opcode == 7):
             mode1 = (code[i] // 100) % 10
             mode2 = (code[i] // 1000) % 10
@@ -159,6 +159,6 @@ if __name__ == "__main__":
             print('seq %d, %d, %d' % (val1, val2, op3))
         else:
             print('Invalid opcode %d' % (opcode))
- 
+            break 
         opcode = code[i] % 100
-               
+        print(opcode)       
